@@ -1,0 +1,135 @@
+.reserveuser {
+    padding-bottom: 50px;
+    min-height: 100vh;
+    .backbtn {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        margin: 25px 0px 50px 25px;
+        outline: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 36px;
+        gap: 15px;
+        color: #FFF;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 36px;
+        text-align: center;
+        max-width: fit-content;
+    }
+
+    .toppara {
+        color: #FFF;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 36px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .progressimg {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tophead {
+        font-size: 51px;
+        font-weight: 900;
+        line-height: 45px;
+        text-align: center;
+        color: #FFF;
+        max-width: 350px;
+        width: 100%;
+        margin: 0 auto 25px;
+    }
+
+    .reservemaincards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 21px;
+
+        .midcard{
+            width: 458px;
+        }
+
+        .reserveinnercard {
+            padding: 45px;
+            border-radius: 20px;
+            background: #22612D;
+
+            .reservemainhead {
+                color: #FFF;
+                font-size: 38.99px;
+                font-weight: 900;
+                line-height: 38.99px;
+                letter-spacing: -0.04em;
+                text-align: left;
+                margin: 25px 0px;
+            }
+
+            .reservemainpara {
+                font-size: 21.84px;
+                font-weight: 500;
+                line-height: 23.65px;
+                letter-spacing: -0.04em;
+                text-align: left;
+                color: #FFF;
+                margin-bottom: 15px;
+            }
+
+            .reservemainbtn {
+                background: #FF9900;
+                padding: 12px 19px;
+                border-radius: 24.1px;
+                color: #FFF;
+                border: none;
+                outline: none;
+                font-size: 17.21px;
+                font-weight: 900;
+                line-height: 17.73px;
+                letter-spacing: -0.04em;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media (max-width:1330px){
+    .reserveuser .reservemaincards .midcard{
+        width: unset !important;
+    }
+}
+
+@media (max-width:1120px){
+    .reserveuser .reservemaincards{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:600px){
+    .reserveuser .backbtn{
+        margin: 25px 0px;
+    }
+    .reserveuser .tophead{
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .reserveuser .reservemaincards .reserveinnercard{
+        padding: 30px;
+    }
+    .reserveuser .reservemaincards .reserveinnercard .reservemainhead{
+        font-size: 30px;
+        line-height: 30px;
+        margin: 15px 0px;
+    }
+    .reserveuser .reservemaincards .reserveinnercard .reservemainpara{
+        font-size: 18px;
+    }
+}

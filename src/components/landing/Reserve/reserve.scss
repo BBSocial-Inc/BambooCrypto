@@ -1,0 +1,61 @@
+.reservemain {
+    padding: 136px 15px;
+    max-width: 1040px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+
+    .reservehead {
+        color: #FFFFFF;
+        font-size: 90px;
+        font-weight: 900;
+        line-height: 90px;
+        letter-spacing: -0.04em;
+        text-align: center;
+        margin-bottom: 34px;
+    }
+    .reservepara{
+        color: #FFFFFF;
+        font-size: 31px;
+        font-weight: 700;
+        line-height: 33.57px;
+        letter-spacing: -0.04em;
+        text-align: center; 
+        margin-bottom: 34px;
+    }
+    .reservebtn{
+        padding: 16px 25px 16px 25px;
+        border-radius: 30px;
+        background: #FF9900;
+        color: #FFFFFF;
+        font-size: 22.07px;
+        font-weight: 900;
+        line-height: 22.73px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        border: none;
+    }
+}
+
+@media(max-width:991px){
+    .reservemain{
+        padding: 50px 15px;
+    }
+    .reservemain .reservehead{
+        font-size: 34px;
+        line-height: 34px;
+        margin-bottom: 20px;
+    }
+    .reservemain .reservepara{
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .reservemain .reservebtn{
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px 15px;
+    }
+}

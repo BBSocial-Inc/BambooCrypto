@@ -1,0 +1,104 @@
+.whymain {
+    padding: 136px 15px 0px;
+
+    .whyinner {
+        .whyinnerhead {
+            font-size: 90px;
+            font-weight: 900;
+            line-height: 90px;
+            letter-spacing: -0.04em;
+            text-align: center;
+            max-width: 816px;
+            width: 100%;
+            color: #FFFFFF;
+            margin: 0 auto;
+            margin-bottom: 34px;
+        }
+    }
+
+    .video-container {
+        max-width: 1021px;
+        width: 100%;
+        height: 606px;
+        border-radius: 27px;
+        border: 12px solid #FFF;
+        box-shadow: 0px 4px 11.4px 0px #00000040;
+        background-color: transparent;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .video-element {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 20px;
+    }
+
+    .play-btn,
+    .pause-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 148px;
+        height: 148px;
+        transition: opacity 0.3s ease;
+        background-color: #FFFFFF;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 300px;
+        .btninnerimgpause{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 80px;
+        }
+        .btninnerimg{
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    .pause-btn {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .video-container:hover .pause-btn {
+        opacity: 1 !important;
+        pointer-events: auto;
+    }
+}
+
+@media(max-width:991px){
+    .whymain{
+        padding: 50px 15px 0px;
+    }
+    .whymain .whyinner .whyinnerhead{
+        font-size: 34px;
+        line-height: 34px;
+        margin-bottom: 20px;
+    }
+    .whymain .video-container{
+        height: 250px;
+    }
+    .whymain .play-btn, .whymain .pause-btn{
+        width: 50px;
+        height: 50px;
+        img{
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .whymain .play-btn .btninnerimgpause, .whymain .pause-btn .btninnerimgpause{
+        width: 25px;
+        height: 25px;
+    }
+}

@@ -1,0 +1,58 @@
+.payment-success {
+  padding-bottom: 50px;
+  min-height: 100vh;
+  background-color: #22612d;
+  color: #fff;
+  display: flex;
+  align-items: center; // Vertically center the container
+  justify-content: center; // Horizontally center the container
+
+  .custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .heading {
+      font-size: 51px;
+      font-weight: 900;
+      line-height: 45px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .inner-card {
+        padding: 45px;
+        border-radius: 20px;
+        background: #287636;
+        color: #000;
+        text-align: center;
+
+        &.mid-card {
+          max-width: 400px;
+          width: 100%;
+        }
+
+        .inner-heading {
+          font-size: 38.99px;
+          font-weight: 900;
+          line-height: 38.99px;
+          margin: 25px 0px;
+        }
+
+        .inner-paragraph {
+          font-size: 21.84px;
+          font-weight: 500;
+          line-height: 23.65px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
