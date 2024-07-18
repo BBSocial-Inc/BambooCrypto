@@ -37,7 +37,7 @@ const Why = () => {
           id="myVideo"
           poster={Thumbnail}
         >
-          <source src={MyVideo} type="video/mp4" />
+          <source src="/videos/bamboo.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {!isPlaying && (
