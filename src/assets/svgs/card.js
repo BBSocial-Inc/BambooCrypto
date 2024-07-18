@@ -17,7 +17,6 @@ const Card = ({ isSelected }) => (
     />
     <mask
       id="mask0_160_594"
-      maskType="luminance"
       maskUnits="userSpaceOnUse"
       x="14"
       y="14"

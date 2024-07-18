@@ -6,7 +6,7 @@ import Premium from "./components/Premium/Premium.js";
 import Individual from "./components/Individual/Individual";
 import Projects from "./components/Projects/Projects";
 import ProjectPayments from "./components/Projects/Payments";
-import IndividualPayments from "./components/Individual/Payments";
+import IndividualPayments from "./components/Individual/individualPayment";
 import CommunityPayments from "./components/Community/Payments";
 import PaymentSuccess from "./components/PaymentSuccess";
 import Community from "./components/Community/community";
