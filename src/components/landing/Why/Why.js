@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import "./why.scss";
-import MyVideo from "../../../assets/videos/bamboo.mp4";
 import Thumbnail from "../../../assets/images/video-thumbnail.png";
 
 const Why = () => {
