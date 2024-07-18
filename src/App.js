@@ -15,10 +15,13 @@ import Influencer from "./components/Infulencer/index";
 import Buyer from "./components/Buyer/Buyer";
 import TokenPreSales from "./components/TokenPreSales/TokenPreSales";
 import SupportUs from "./components/Support/SupportUs";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Router>
         <Routes>
           <Route exact path="/" element={<Landing />} />

@@ -6,6 +6,8 @@ import Usdc from "../../assets/svgs/usdc";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { resetForm } from "../../features/individual/formSlice"; // Import your reset action if needed
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./payments.scss";
 
 const Payment = () => {
@@ -62,7 +64,7 @@ const Payment = () => {
       // Handle successful payment
       dispatch(resetForm()); // Optionally reset form state
     } catch (error) {
-      console.error("Error processing payment:", error);
+      toast.success(error.response.data.error);
     } finally {
       setLoading(false);
     }
