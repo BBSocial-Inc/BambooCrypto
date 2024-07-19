@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.scss";
+import { Button } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
@@ -132,7 +134,6 @@ const Navbar = () => {
             <h5>Refer friends and family</h5>
           </div>
           <div className="main-content">
-            <p>Text that goes with link to share with friends and family</p>
             <h6>
               Hey Friends, <br />I just found this new and interesting social
               network where you will learn and make money with crypto. Copy the
@@ -144,6 +145,14 @@ const Navbar = () => {
               www.bamboocrypto.com
             </a>
           </div>
+          <Button
+            variant="warning"
+            type="button"
+            className="submit-button"
+            onClick={handleLinkClick}
+          >
+            Copy Link
+          </Button>
         </Modal.Body>
       </Modal>
     </>

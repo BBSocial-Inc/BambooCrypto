@@ -35,7 +35,12 @@ const Banner = () => {
             Reserve Your Username Now
           </h1>
           <h6 className="bannerpara">
+<<<<<<< Updated upstream
             The social network for crypto enthusiasts, crypto conversations, web3 education and crypto transactions.
+=======
+            Bamboo Crypto is a social network for crypto enthusiast, crypto
+            conversations, crypto education and crypto transactions
+>>>>>>> Stashed changes
           </h6>
           <Link to="/reserveyourusername" className="bannerbtn">
             Reserve your username
