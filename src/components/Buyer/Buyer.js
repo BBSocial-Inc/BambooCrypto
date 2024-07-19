@@ -14,7 +14,7 @@ const Buyer = () => {
     fullName: "",
     email: "",
     phoneNumber: "",
-    table: "Buyers",
+    table: "Buyers of Tshirts",
   });
   const [amount, setAmount] = useState("");
 

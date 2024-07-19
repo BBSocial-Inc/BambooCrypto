@@ -18,7 +18,7 @@ const Payment = () => {
       if (selectedIcon === "Card") {
         const response = await axios.post(
           `${process.env.REACT_APP_API_BASE_URL}payments/stripe`, // Replace with your API endpoint
-          { amount, table: "Investors" },
+          { amount, table: "Donations" },
           {
             headers: {
               "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const Payment = () => {
       if (selectedIcon === "USDT" || selectedIcon === "USDC") {
         const response = await axios.post(
           `${process.env.REACT_APP_API_BASE_URL}payments/coinbase`, // Replace with your API endpoint
-          { amount, table: "Investors", paymentMethod: selectedIcon },
+          { amount, table: "Donations", paymentMethod: selectedIcon },
           {
             headers: {
               "Content-Type": "application/json",
