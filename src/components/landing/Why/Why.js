@@ -10,7 +10,7 @@ const Why = () => {
       </div>
       <div className="video-container">
             <iframe
-              src="https://www.youtube.com/embed/xcZKQpCXsi8"
+              src="https://www.youtube.com/embed/Ef2KlfhgZ64" 
               title="Bamboo Crypto Community Conversation"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
