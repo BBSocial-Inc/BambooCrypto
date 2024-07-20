@@ -10,16 +10,22 @@ const Navbar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const link = "www.bamboocrypto.com";
+  const handleLinkClick = () => {
+    const textToCopy = `
+      Hey Friends,
+      
+      I just found this new and interesting social network where you will learn and make money with crypto. Copy the link below and sign up to join the waitlist or the early bird. Remember to follow me in Bamboo Crypto
+      
+      Link: www.bamboocrypto.com
+    `;
+
     navigator.clipboard
-      .writeText(link)
+      .writeText(textToCopy)
       .then(() => {
-        alert("Link copied to clipboard!");
+        alert("Link and text copied to clipboard");
       })
       .catch((err) => {
-        console.error("Failed to copy the link: ", err);
+        console.error("Failed to copy: ", err);
       });
   };
 
@@ -61,11 +67,11 @@ const Navbar = () => {
               id="navbarSupportedContent"
             >
               <div className="left-links">
-                <a href="/" className="mainlink">
-                  Profiles
-                </a>
-                <a href="/" className="mainlink">
-                  Security
+                <a
+                  href="mailto:kwesi@powershop.link"
+                  className="footerinnerlink"
+                >
+                  Contact Us
                 </a>
               </div>
               <ul className="navbar-nav">

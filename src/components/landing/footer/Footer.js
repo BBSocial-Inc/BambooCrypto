@@ -8,12 +8,10 @@ const Footer = () => {
         <div className="footerleft">
           <img src="/logo.svg" alt="logoimg" className="logoimg" />
           <div className="footerlinks">
-            <a href="/" className="footerinnerlink">
-              Profiles
+            <a href="mailto:kwesi@powershop.link" className="footerinnerlink">
+              Contact Us
             </a>
-            <a href="/" className="footerinnerlink">
-              Security
-            </a>
+
             <a href="/" className="footerinnerlink">
               Privacy Policy
             </a>
