@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../../assets/svgs/card";
 import Usdt from "../../assets/svgs/usdt";
 import Usdc from "../../assets/svgs/usdc";
@@ -11,11 +11,23 @@ import "react-toastify/dist/ReactToastify.css";
 import "./individualPayment.scss";
 
 const IndividualPayment = () => {
+  const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("Card");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form); // Assuming your form data is here
+
+  useEffect(() => {
+    if (
+      !formData.firstName?.trim() ||
+      !formData.lastName?.trim() ||
+      !formData.email?.trim() ||
+      !formData.username?.trim()
+    ) {
+      navigate("/");
+    }
+  }, [formData, navigate]);
 
   const handlePayment = async () => {
     setLoading(true);
@@ -83,21 +95,9 @@ const IndividualPayment = () => {
     }
   };
 
-  const validateFormData = (formData, amount, selectedIcon) => {
+  const validateFormData = (amount, selectedIcon) => {
     const errors = {};
 
-    if (!formData.firstName.trim()) {
-      errors.firstName = "First name is required.";
-    }
-    if (!formData.lastName.trim()) {
-      errors.lastName = "Last name is required.";
-    }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "A valid email is required.";
-    }
-    if (!formData.username.trim()) {
-      errors.username = "Username is required.";
-    }
     if (!amount || isNaN(amount) || amount <= 0) {
       errors.amount = "A valid amount is required.";
     }

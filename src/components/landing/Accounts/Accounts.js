@@ -28,6 +28,7 @@ const Accounts = () => {
             Stay informed, connect with others, and participate in the crypto
             community.
           </p>
+
           <Link to="/reserveyourusername" className="accountcardbtn">
             Reserve your username
           </Link>

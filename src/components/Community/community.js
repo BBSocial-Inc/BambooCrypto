@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import ShareWithFriendsPopup from "../common/ShareWithFriendsPopup"; // Adjust the path as necessary
-import { setFormData, resetForm } from "../../features/community/formSlice";
+import { setFormData } from "../../features/community/formSlice";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
 import "./community.scss";
 
@@ -13,7 +16,6 @@ const CommunityForm = () => {
   const formData = useSelector((state) => state.community);
   const [isPopupVisible, setPopupVisible] = useState(false);
 
-  const showPopup = () => setPopupVisible(true);
   const closePopup = () => setPopupVisible(false);
 
   const handleChange = (e) => {
@@ -22,11 +24,28 @@ const CommunityForm = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      setPopupVisible(true);
+      try {
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}reservations/community`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        dispatch(setFormData(response.data.data));
+        toast.success("Successfully Created");
+        setPopupVisible(true);
+        console.log(response);
+      } catch (e) {
+        console.log(e);
+        toast.error(e.response.data.error);
+      }
     } else {
       setErrors(validationErrors);
     }

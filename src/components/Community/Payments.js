@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./payments.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../../assets/svgs/card";
 import Usdt from "../../assets/svgs/usdt";
 import Usdc from "../../assets/svgs/usdc";
@@ -11,11 +11,23 @@ import axios from "axios";
 import { resetForm } from "../../features/community/formSlice"; // Import your reset action if needed
 
 const Payment = () => {
+  const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("Card");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.community); // Assuming your form data is here
+
+  useEffect(() => {
+    if (
+      !formData.firstName?.trim() ||
+      !formData.lastName?.trim() ||
+      !formData.email?.trim() ||
+      !formData.username?.trim()
+    ) {
+      navigate("/");
+    }
+  }, [formData, navigate]);
 
   const handlePayment = async () => {
     setLoading(true);
@@ -84,35 +96,8 @@ const Payment = () => {
     }
   };
 
-  const validateFormData = (formData, amount, selectedIcon) => {
+  const validateFormData = (amount, selectedIcon) => {
     const errors = {};
-
-    // Validate existing fields
-    if (!formData.firstName.trim()) {
-      errors.firstName = "First name is required.";
-    }
-    if (!formData.lastName.trim()) {
-      errors.lastName = "Last name is required.";
-    }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "A valid email is required.";
-    }
-    if (!formData.username.trim()) {
-      errors.username = "Username is required.";
-    }
-
-    // Validate new fields
-    if (
-      !formData.numberOfMembers ||
-      isNaN(formData.numberOfMembers) ||
-      parseInt(formData.numberOfMembers) < 1
-    ) {
-      errors.numberOfMembers = "A valid number of members is required.";
-    }
-    if (!formData.founderName.trim()) {
-      errors.founderName = "Founder name is required.";
-    }
-
     // Validate payment amount and method
     if (!amount || isNaN(amount) || amount <= 0) {
       errors.amount = "A valid amount is required.";

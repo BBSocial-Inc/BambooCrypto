@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./payments.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "../../assets/svgs/card";
 import Usdt from "../../assets/svgs/usdt";
 import Usdc from "../../assets/svgs/usdc";
@@ -11,11 +11,18 @@ import axios from "axios";
 import { resetForm } from "../../features/project/formSlice"; // Import your reset action if needed
 
 const Payment = () => {
+  const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("Card");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.project); // Assuming your form data is here
+
+  useEffect(() => {
+    if (!formData.brandName?.trim() || !formData.email?.trim()) {
+      navigate("/");
+    }
+  }, [formData, navigate]);
 
   const handlePayment = async () => {
     setLoading(true);
@@ -86,20 +93,6 @@ const Payment = () => {
 
   const validateFormData = (formData, amount, selectedIcon) => {
     const errors = {};
-
-    // Validate additional fields
-    if (!formData.brandName.trim()) {
-      errors.brandName = "Brand name is required.";
-    }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "A valid email is required.";
-    }
-    if (!formData.existing.trim()) {
-      errors.existing = "Existing project status is required.";
-    }
-    if (!formData.token.trim()) {
-      errors.token = "Token issuance status is required.";
-    }
 
     // Validate payment amount and method
     if (!amount || isNaN(amount) || amount <= 0) {
