@@ -9,13 +9,12 @@ const Why = () => {
         <h1 className="whyinnerhead">Why Bamboo Crypto? Our vision!</h1>
       </div>
       <div className="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/RcCYm7wtXv8" 
-              title="Bamboo Crypto Community Conversation"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            >
-            </iframe>
+        <iframe
+          src="https://www.youtube.com/embed/RcCYm7wtXv8"
+          title="Bamboo Crypto Community Conversation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { resetForm } from "../../features/individual/formSlice"; // Import your reset action if needed
+import { resetForm } from "../../features/project/formSlice"; // Import your reset action if needed
 
 const Payment = () => {
   const [selectedIcon, setSelectedIcon] = useState("Card");
@@ -19,6 +19,19 @@ const Payment = () => {
 
   const handlePayment = async () => {
     setLoading(true);
+
+    const errors = validateFormData(formData, amount, selectedIcon);
+
+    // If there are validation errors, show them and stop
+    if (Object.keys(errors).length > 0) {
+      for (const [key, message] of Object.entries(errors)) {
+        toast.error(message);
+      }
+      setLoading(false);
+      window.history.back();
+      return;
+    }
+
     try {
       const requestData = {
         ...formData,
@@ -69,6 +82,34 @@ const Payment = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const validateFormData = (formData, amount, selectedIcon) => {
+    const errors = {};
+
+    // Validate additional fields
+    if (!formData.brandName.trim()) {
+      errors.brandName = "Brand name is required.";
+    }
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "A valid email is required.";
+    }
+    if (!formData.existing.trim()) {
+      errors.existing = "Existing project status is required.";
+    }
+    if (!formData.token.trim()) {
+      errors.token = "Token issuance status is required.";
+    }
+
+    // Validate payment amount and method
+    if (!amount || isNaN(amount) || amount <= 0) {
+      errors.amount = "A valid amount is required.";
+    }
+    if (!selectedIcon) {
+      errors.paymentMethod = "Please select a payment method.";
+    }
+
+    return errors;
   };
 
   return (
