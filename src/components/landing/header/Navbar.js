@@ -67,10 +67,7 @@ const Navbar = () => {
               id="navbarSupportedContent"
             >
               <div className="left-links">
-                <a
-                  href="mailto:kwesi@powershop.link"
-                  className="footerinnerlink"
-                >
+                <a href="mailto:kwesi@powershop.link" className="mainlink">
                   Contact Us
                 </a>
               </div>
