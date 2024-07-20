@@ -68,7 +68,7 @@ const Navbar = () => {
             >
               <div className="left-links">
                 <a href="mailto:kwesi@powershop.link" className="mainlink">
-                  Contact Us
+                  Contact Us: kwesi@powershop.link
                 </a>
               </div>
               <ul className="navbar-nav">

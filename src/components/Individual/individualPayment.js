@@ -19,6 +19,19 @@ const IndividualPayment = () => {
 
   const handlePayment = async () => {
     setLoading(true);
+
+    const errors = validateFormData(formData, amount, selectedIcon);
+
+    // If there are validation errors, show them and stop
+    if (Object.keys(errors).length > 0) {
+      for (const [key, message] of Object.entries(errors)) {
+        toast.error(message);
+      }
+      setLoading(false);
+      window.history.back();
+      return;
+    }
+
     try {
       const requestData = {
         ...formData,
@@ -68,6 +81,31 @@ const IndividualPayment = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const validateFormData = (formData, amount, selectedIcon) => {
+    const errors = {};
+
+    if (!formData.firstName.trim()) {
+      errors.firstName = "First name is required.";
+    }
+    if (!formData.lastName.trim()) {
+      errors.lastName = "Last name is required.";
+    }
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "A valid email is required.";
+    }
+    if (!formData.username.trim()) {
+      errors.username = "Username is required.";
+    }
+    if (!amount || isNaN(amount) || amount <= 0) {
+      errors.amount = "A valid amount is required.";
+    }
+    if (!selectedIcon) {
+      errors.paymentMethod = "Please select a payment method.";
+    }
+
+    return errors;
   };
 
   return (
