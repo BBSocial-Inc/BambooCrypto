@@ -75,6 +75,16 @@ const Invest = () => {
                   answer the following questions and our CEO/team will reach out
                   to you.
                 </p>
+                <p className="text-white">
+                  For more details, please contact{" "}
+                  <a
+                    href="mailto:kwesi@powershop.link"
+                    className="contact-link"
+                  >
+                    kwesi@powershop.link
+                  </a>
+                  .
+                </p>
               </div>
               <div className="right-content">
                 <div className="form-body-container">

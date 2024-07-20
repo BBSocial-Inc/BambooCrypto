@@ -66,6 +66,16 @@
   font-weight: bold;
 }
 
+.contact-link {
+  color: #ffff00; // Bright yellow for high contrast on green background
+  text-decoration: underline; // Underline the link for better visibility
+
+  &:hover {
+    color: #ffffff; // Change to white or a different color on hover
+    text-decoration: none; // Optional: Remove underline on hover
+  }
+}
+
 .form-control {
   border-radius: 50px;
   padding: 10px 15px;
