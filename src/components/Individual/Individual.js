@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import ShareWithFriendsPopup from "../common/ShareWithFriendsPopup"; // Adjust the path as necessary
 import { setFormData, resetForm } from "../../features/individual/formSlice";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./individual.scss";
 
 const IndividualForm = () => {
@@ -34,11 +37,28 @@ const IndividualForm = () => {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      setPopupVisible(true);
+      try {
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}reservations/individual`, // Replace with your API endpoint
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        dispatch(setFormData(response.data.data));
+        toast.success("Successfully Created");
+        setPopupVisible(true);
+        console.log(response);
+      } catch (e) {
+        console.log(e);
+        toast.error(e.response.data.error);
+      }
     } else {
       setErrors(validationErrors);
     }
