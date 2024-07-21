@@ -64,7 +64,10 @@ const Accounts = () => {
           <p className="accountcardpara">
             Reach a targeted audience, share updates, and build brand awareness.
           </p>
-          <button className="accountcardbtn">
+          <button
+            className="accountcardbtn"
+            onClick={() => handleNavigation("/project")}
+          >
             Reserve your brand or business name
           </button>
         </div>
@@ -82,7 +85,12 @@ const Accounts = () => {
             Set up a project Account, grow users who support your project,
             engage with more community and launch a successful project
           </p>
-          <button className="accountcardbtn">Reserve your project name</button>
+          <button
+            className="accountcardbtn"
+            onClick={() => handleNavigation("/project")}
+          >
+            Reserve your project name
+          </button>
         </div>
       </div>
     </section>

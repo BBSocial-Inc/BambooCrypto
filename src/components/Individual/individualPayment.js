@@ -13,6 +13,7 @@ import "./individualPayment.scss";
 const IndividualPayment = () => {
   const navigate = useNavigate();
   const [selectedIcon, setSelectedIcon] = useState("Card");
+  const [remainingTime, setRemainingTime] = useState({});
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -28,6 +29,36 @@ const IndividualPayment = () => {
       navigate("/");
     }
   }, [formData, navigate]);
+
+  useEffect(() => {
+    const END_DATE = new Date("2024-08-04T00:00:00Z"); // Set your static end date here
+
+    const calculateRemainingTime = (endDate) => {
+      const now = new Date().getTime();
+      const timeLeft = endDate - now;
+
+      if (timeLeft <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      }
+
+      const totalSeconds = Math.floor(timeLeft / 1000);
+      const days = Math.floor(totalSeconds / (3600 * 24));
+      const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = Math.floor(totalSeconds % 60);
+
+      return { days, hours, minutes, seconds };
+    };
+
+    const updateTimer = () => {
+      setRemainingTime(calculateRemainingTime(END_DATE));
+    };
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timerInterval);
+  }, []);
 
   const handlePayment = async () => {
     setLoading(true);
@@ -140,19 +171,19 @@ const IndividualPayment = () => {
                 <div className="timer">
                   <div className="single-time">
                     <p>DAYS</p>
-                    <h5>01</h5>
+                    <h5>{remainingTime.days}</h5>
                   </div>
                   <div className="single-time">
                     <p>HOURS</p>
-                    <h5>01</h5>
+                    <h5>{remainingTime.hours}</h5>
                   </div>
                   <div className="single-time">
                     <p>MINUTES</p>
-                    <h5>01</h5>
+                    <h5>{remainingTime.minutes}</h5>
                   </div>
                   <div className="single-time">
                     <p>SECONDS</p>
-                    <h5>01</h5>
+                    <h5>{remainingTime.seconds}</h5>
                   </div>
                 </div>
                 <p className="para">
