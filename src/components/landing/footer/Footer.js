@@ -81,7 +81,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://sx.com/bamboocrypto25"
+            href="https://x.com/bamboocrypto25"
             className="sociallink"
             target="_blank"
           >
@@ -100,7 +100,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://sx.com/bamboocrypto25"
+            href="https://x.com/bamboocrypto25"
             className="sociallink"
             target="_blank"
           >
