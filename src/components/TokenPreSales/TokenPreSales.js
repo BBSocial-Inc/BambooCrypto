@@ -149,7 +149,7 @@ const TokenPreSales = () => {
                     >
                       <Card isSelected={selectedIcon === "Card"} />
                     </div>
-                    <div
+                    {/* <div
                       className={`payment-icon ${
                         selectedIcon === "USDT" ? "selected" : ""
                       }`}
@@ -164,7 +164,7 @@ const TokenPreSales = () => {
                       onClick={() => setSelectedIcon("USDC")}
                     >
                       <Usdc isSelected={selectedIcon === "USDC"} />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="option-field">
