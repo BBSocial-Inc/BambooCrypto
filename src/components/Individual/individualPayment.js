@@ -63,7 +63,7 @@ const IndividualPayment = () => {
   const handlePayment = async () => {
     setLoading(true);
 
-    const errors = validateFormData(formData, amount, selectedIcon);
+    const errors = validateFormData(amount, selectedIcon);
 
     // If there are validation errors, show them and stop
     if (Object.keys(errors).length > 0) {
@@ -128,7 +128,7 @@ const IndividualPayment = () => {
 
   const validateFormData = (amount, selectedIcon) => {
     const errors = {};
-
+    console.log(amount);
     if (!amount || isNaN(amount) || amount <= 0) {
       errors.amount = "A valid amount is required.";
     }

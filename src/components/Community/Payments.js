@@ -63,7 +63,7 @@ const Payment = () => {
   const handlePayment = async () => {
     setLoading(true);
 
-    const errors = validateFormData(formData, amount, selectedIcon);
+    const errors = validateFormData(amount, selectedIcon);
 
     // If there are validation errors, show them and stop
     if (Object.keys(errors).length > 0) {
